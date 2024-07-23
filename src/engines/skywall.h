@@ -1,5 +1,5 @@
-#ifndef FOURKU_H
-#define FOURKU_H 1
+#ifndef SKYWALL_H
+#define SKYWALL_H 1
 
 #define TAPERED 1
 
@@ -9,15 +9,17 @@
 #include <string>
 #include <vector>
 
-namespace Fourku
+#if TAPERED
+namespace Skywall
 {
-    class FourkuEval
+    class SkywallEvalTapered
     {
     public:
-        constexpr static bool includes_additional_score = true;
-        constexpr static bool supports_external_chess_eval = true;
-        constexpr static bool retune_from_zero = true;
-        constexpr static tune_t preferred_k = 2.1;
+        constexpr static bool includes_additional_score = false;
+        constexpr static bool supports_external_chess_eval = false;
+        constexpr static bool retune_from_zero = false;
+        //constexpr static tune_t preferred_k = 1.87119;
+        constexpr static tune_t preferred_k = 0;
         constexpr static int32_t max_epoch = 5001;
         constexpr static bool enable_qsearch = false;
         constexpr static bool filter_in_check = false;
@@ -33,5 +35,7 @@ namespace Fourku
         static void print_parameters(const parameters_t& parameters);
     };
 }
+#endif
 
-#endif // 4KU_H
+#endif // !SKYWALL_H
+

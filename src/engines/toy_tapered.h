@@ -25,6 +25,7 @@ namespace Toy
         constexpr static tune_t initial_learning_rate = 1;
         constexpr static int32_t learning_rate_drop_interval = 10000;
         constexpr static tune_t learning_rate_drop_ratio = 1;
+        constexpr static int32_t data_load_print_interval = 10000;
 
         static parameters_t get_initial_parameters();
         static EvalResult get_fen_eval_result(const std::string& fen);
